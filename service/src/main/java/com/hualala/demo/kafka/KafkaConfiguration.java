@@ -62,14 +62,14 @@ public class KafkaConfiguration {
         props.put(ConsumerConfig.ENABLE_AUTO_COMMIT_CONFIG, false);
         props.put(ConsumerConfig.AUTO_OFFSET_RESET_CONFIG, "earliest");
         props.put(ConsumerConfig.SESSION_TIMEOUT_MS_CONFIG, environment.getTimeOut());
-        props.put(ConsumerConfig.MAX_POLL_RECORDS_CONFIG,1000);
+        props.put(ConsumerConfig.MAX_POLL_RECORDS_CONFIG,5);
         props.put("zookeeper.sync.time.ms", environment.getTimeMs());
         props.put(ConsumerConfig.AUTO_COMMIT_INTERVAL_MS_CONFIG, environment.getIntervalMs());
         props.put(ConsumerConfig.MAX_POLL_INTERVAL_MS_CONFIG, 300000);
         props.put(ConsumerConfig.REQUEST_TIMEOUT_MS_CONFIG, 600000);
         //--------kafka集群2.0 授权需增加的配置-----------------
-//        props.put("sasl.mechanism", "PLAIN");
-//        props.put("security.protocol", "SASL_PLAINTEXT");
+        props.put("sasl.mechanism", "PLAIN");
+        props.put("security.protocol", "SASL_PLAINTEXT");
         return props;
     }
 
@@ -77,9 +77,9 @@ public class KafkaConfiguration {
     public Map<String, Object> producerConfigs() {
         Map<String, Object> producerProperties = new HashMap<>();
 //        producerProperties.put("bootstrap.servers", "172.16.33.28:9092");
-//        producerProperties.put("sasl.mechanism", "PLAIN");
-//        producerProperties.put("security.protocol", "SASL_PLAINTEXT");
-        producerProperties.put("bootstrap.servers", "172.16.33.28:9092,172.16.33.37:9092,172.16.33.39:9092");//,172.16.0.31:9092,172.16.0.32:9092
+        producerProperties.put("sasl.mechanism", "PLAIN");
+        producerProperties.put("security.protocol", "SASL_PLAINTEXT");
+        producerProperties.put("bootstrap.servers", "172.16.0.30:9092,172.16.0.31:9092,172.16.0.32:9092");//,172.16.0.31:9092,172.16.0.32:9092
 //        producerProperties.put("group.id", "0");
 //        producerProperties.put("retries", "10");
 //        producerProperties.put("batch.size", "16384");

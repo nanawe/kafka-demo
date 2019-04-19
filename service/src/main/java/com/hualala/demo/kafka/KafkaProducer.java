@@ -18,7 +18,7 @@ public class KafkaProducer {
     @Scheduled(fixedDelay = 2 * 1000, initialDelay = 1 * 1000)
     public void schedule() {
         i++;
-        kafkaTemplate.send("test_demo", "this is data"+i);
+        kafkaTemplate.send("bd_canal_passport", "this is data"+i);
     }
 
 }
