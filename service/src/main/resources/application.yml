@@ -16,15 +16,15 @@ spring:
     listener:
       concurrency: 3
     consumer:
-      group-id: sassPosDeviceManageServiceGroup
+      group-id: saasPosTableServiceTableInfoSyncBJGroup
       timeOut : 60000
       time:
           ms: 500
       interval:
           ms : 2000
     template:
-      default-topic: bd_canal_passport
+      default-topic: saasPos_table_servcie_tableInfoSync
 
 
 server:
-  port: 8082
+  port: 8080

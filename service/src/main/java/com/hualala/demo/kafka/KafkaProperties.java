@@ -23,4 +23,6 @@ public class KafkaProperties {
     private String timeMs;
     @Value("${spring.kafka.consumer.interval.ms}")
     private String intervalMs;
+    @Value("${spring.kafka.template.default-topic}")
+    private String topic;
 }
